@@ -65,7 +65,7 @@ public class Game {
 
                 // 更新 JavaFX 控件中的状态
                 Platform.runLater(() -> {
-                    music.moveSound();
+                    //music.moveSound();
                     frame.gamePanel.update(piece, direction);
                     // 检查是否达成胜利条件
                     PieceAndPos winCondition = setting.winCondition;
@@ -91,7 +91,7 @@ public class Game {
         ;
     }
     //存档用户进度
-    public void saveProgress(String username)
+    public void saveProgress(String username,String levelName)
     {
         List<String> names = new ArrayList<>();
         for (Piece p : piecesMoved) {
@@ -119,8 +119,8 @@ public class Game {
         }
     }
     //从文件读回进度，没有存档就返回null
-    public static GameProgress loadProgress(String username) throws IOException {
-        File f =new File("saves",username+".sav");
+    public static GameProgress loadProgress(String username,String levelName) throws IOException {
+        File f =new File("saves",username+"_"+levelName+".sav");
         if(!f.exists()) return null;
         try(ObjectInputStream in=new ObjectInputStream(new FileInputStream(f))){
             GameProgress progress = (GameProgress) in.readObject();

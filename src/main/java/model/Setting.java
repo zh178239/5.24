@@ -10,7 +10,7 @@ import java.util.Map;
 public class Setting implements Serializable {
     private static final long serialVersionUID = 1L;
     private final Map<String,Piece> prototypeMap=new HashMap<>();
-
+    public String name;
     public ArrayList<PieceAndPos> piecesAndPoses;
     public PieceAndPos winCondition;
     public int height, width;
@@ -28,6 +28,7 @@ public class Setting implements Serializable {
 
     public Setting(String name) throws Exception {
         piecesAndPoses = new ArrayList<>();
+        this.name = name;
 
         if (name.equals("横刀立马")) {
             height = 5;
@@ -46,21 +47,126 @@ public class Setting implements Serializable {
 
             winCondition = new PieceAndPos(caoCao, 3, 1);
 
-            prototypeMap.put(caoCao.getId(),     caoCao);
-            prototypeMap.put(zhangFei.getId(),   zhangFei);
-            prototypeMap.put(zhaoYun.getId(),    zhaoYun);
-            prototypeMap.put(maChao.getId(),     maChao);
+            prototypeMap.put(caoCao.getId(), caoCao);
+            prototypeMap.put(zhangFei.getId(), zhangFei);
+            prototypeMap.put(zhaoYun.getId(), zhaoYun);
+            prototypeMap.put(maChao.getId(), maChao);
             prototypeMap.put(huangZhong.getId(), huangZhong);
-            prototypeMap.put(guanYu.getId(),     guanYu);
-            prototypeMap.put(xiaoBing1.getId(),  xiaoBing1);
-            prototypeMap.put(xiaoBing2.getId(),  xiaoBing2);
-            prototypeMap.put(xiaoBing3.getId(),  xiaoBing3);
-            prototypeMap.put(xiaoBing4.getId(),  xiaoBing4);
+            prototypeMap.put(guanYu.getId(), guanYu);
+            prototypeMap.put(xiaoBing1.getId(), xiaoBing1);
+            prototypeMap.put(xiaoBing2.getId(), xiaoBing2);
+            prototypeMap.put(xiaoBing3.getId(), xiaoBing3);
+            prototypeMap.put(xiaoBing4.getId(), xiaoBing4);
+        }
+       else if(name.equals("新手教程"))
+        {
+            height = 5;
+            width = 4;
+            piecesAndPoses.add(new PieceAndPos(caoCao, 0, 1));
+            piecesAndPoses.add(new PieceAndPos(guanYu, 2, 1));
 
-        } else {
+            winCondition = new PieceAndPos(caoCao, 3, 1);
+
+            prototypeMap.put(caoCao.getId(), caoCao);
+            prototypeMap.put(guanYu.getId(), guanYu);
+
+
+        }
+
+        else if(name.equals("将拥曹营")){
+            height = 5;
+            width = 4;
+
+            piecesAndPoses.add(new PieceAndPos(zhangFei, 2, 1));
+            piecesAndPoses.add(new PieceAndPos(caoCao, 0, 1));
+            piecesAndPoses.add(new PieceAndPos(zhaoYun, 1, 3));
+            piecesAndPoses.add(new PieceAndPos(maChao, 1, 0));
+            piecesAndPoses.add(new PieceAndPos(huangZhong, 2, 2));
+            piecesAndPoses.add(new PieceAndPos(guanYu, 4, 0));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing1, 3, 0));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing2, 4, 2));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing3, 4, 3));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing4, 3, 3));
+
+            winCondition = new PieceAndPos(caoCao, 3, 1);
+
+            prototypeMap.put(caoCao.getId(), caoCao);
+            prototypeMap.put(zhangFei.getId(), zhangFei);
+            prototypeMap.put(zhaoYun.getId(), zhaoYun);
+            prototypeMap.put(maChao.getId(), maChao);
+            prototypeMap.put(huangZhong.getId(), huangZhong);
+            prototypeMap.put(guanYu.getId(), guanYu);
+            prototypeMap.put(xiaoBing1.getId(), xiaoBing1);
+            prototypeMap.put(xiaoBing2.getId(), xiaoBing2);
+            prototypeMap.put(xiaoBing3.getId(), xiaoBing3);
+            prototypeMap.put(xiaoBing4.getId(), xiaoBing4);
+
+            }
+        else if(name.equals("水泄不通")){
+            height = 5;
+            width = 4;
+
+            piecesAndPoses.add(new PieceAndPos(zhangFei, 2, 2));
+            piecesAndPoses.add(new PieceAndPos(caoCao, 0, 1));
+            piecesAndPoses.add(new PieceAndPos(zhaoYun, 3, 0));
+            piecesAndPoses.add(new PieceAndPos(maChao, 3, 2));
+            piecesAndPoses.add(new PieceAndPos(huangZhong, 0, 0));
+            piecesAndPoses.add(new PieceAndPos(guanYu, 2, 0));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing1, 0, 3));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing2, 1, 3));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing3, 4, 3));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing4, 4, 0));
+
+            winCondition = new PieceAndPos(caoCao, 3, 1);
+
+            prototypeMap.put(caoCao.getId(), caoCao);
+            prototypeMap.put(zhangFei.getId(), zhangFei);
+            prototypeMap.put(zhaoYun.getId(), zhaoYun);
+            prototypeMap.put(maChao.getId(), maChao);
+            prototypeMap.put(huangZhong.getId(), huangZhong);
+            prototypeMap.put(guanYu.getId(), guanYu);
+            prototypeMap.put(xiaoBing1.getId(), xiaoBing1);
+            prototypeMap.put(xiaoBing2.getId(), xiaoBing2);
+            prototypeMap.put(xiaoBing3.getId(), xiaoBing3);
+            prototypeMap.put(xiaoBing4.getId(), xiaoBing4);
+
+        }
+        else if(name.equals("峰回路转")){
+            height = 5;
+            width = 4;
+
+            piecesAndPoses.add(new PieceAndPos(zhangFei, 4, 2));
+            piecesAndPoses.add(new PieceAndPos(caoCao, 1, 0));
+            piecesAndPoses.add(new PieceAndPos(zhaoYun, 0, 3));
+            piecesAndPoses.add(new PieceAndPos(maChao, 1, 2));
+            piecesAndPoses.add(new PieceAndPos(huangZhong, 2, 3));
+            piecesAndPoses.add(new PieceAndPos(guanYu, 3, 1));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing1, 0, 0));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing2, 0, 1));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing3, 0, 2));
+            piecesAndPoses.add(new PieceAndPos(xiaoBing4, 4, 1));
+
+            winCondition = new PieceAndPos(caoCao, 3, 1);
+
+            prototypeMap.put(caoCao.getId(), caoCao);
+            prototypeMap.put(zhangFei.getId(), zhangFei);
+            prototypeMap.put(zhaoYun.getId(), zhaoYun);
+            prototypeMap.put(maChao.getId(), maChao);
+            prototypeMap.put(huangZhong.getId(), huangZhong);
+            prototypeMap.put(guanYu.getId(), guanYu);
+            prototypeMap.put(xiaoBing1.getId(), xiaoBing1);
+            prototypeMap.put(xiaoBing2.getId(), xiaoBing2);
+            prototypeMap.put(xiaoBing3.getId(), xiaoBing3);
+            prototypeMap.put(xiaoBing4.getId(), xiaoBing4);
+
+        }
+
+         else {
             throw new Exception("未找到该名称的游戏设置！");
         }
     }
+
+
     public Piece createPieceById(String id) {
         Piece proto = prototypeMap.get(id);
         if (proto == null) {

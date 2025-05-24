@@ -36,11 +36,11 @@ public class LoginController {
         this.stageController = stageController;
     }
 
-    public void onLogin(String username, Stage stage) throws Exception {
+    public void onLogin(String username, String levelName,Stage stage) throws Exception {
         GameProgress prog = null;
         boolean saveConrrupted=false;
         try {
-            prog=Game.loadProgress(username);
+            prog=Game.loadProgress(username,levelName);
         } catch (IOException e) {
             saveConrrupted=true;
         }
@@ -52,7 +52,7 @@ public class LoginController {
         }
 
         // 1) 一律用 defaultSetting 来构造和初始化棋盘
-        Setting defaultSetting = new Setting("横刀立马");
+        Setting defaultSetting = new Setting(levelName);
         GameBoard board = new GameBoard(defaultSetting.height, defaultSetting.width);
         Game game = new Game(defaultSetting, board);
 
@@ -90,8 +90,8 @@ public class LoginController {
         }
     }
 
-    public void onGuest(Stage stage) throws Exception {
-        Setting setting = new Setting("横刀立马");
+    public void onGuest(Stage stage,String levelName) throws Exception {
+        Setting setting = new Setting(levelName);
         GameBoard board = new GameBoard(setting.height, setting.width);
         Game game = new Game(setting, board);
         game.initialize(setting);
